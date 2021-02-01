@@ -1,0 +1,37 @@
+{
+    "name": "epg-screen-test",
+    "version": "1.0.0",
+    "scripts": {
+        "prebuild": "rimraf dist/js",
+        "build": "rollup -c",
+        "lint": "eslint src",
+        "test": "npm run lint",
+        "mock:run": "./node_modules/.bin/osprey-mock-service -f ./node_modules/nm-mock-api/demo.raml -p 1337 --cors",
+        "mock:start": "node ./node_modules/nm-mock-api/scripts/updateEpg.js && npm run mock:run",
+        "serve": "http-server dist"
+    },
+    "author": "Ilia Baryshnikov <qwelias@gmail.com>",
+    "license": "ISC",
+    "dependencies": {
+        "@types/lodash": "^4.14.168",
+        "lodash": "^4.17.20",
+        "neverland": "^4.3.3"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^17.0.0",
+        "@rollup/plugin-node-resolve": "^11.1.0",
+        "@rollup/plugin-typescript": "^8.1.0",
+        "@typescript-eslint/eslint-plugin": "^4.14.1",
+        "eslint": "^7.18.0",
+        "eslint-config-standard-with-typescript": "^20.0.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "http-server": "^0.12.3",
+        "nm-mock-api": "git+https://github.com/NoriginMedia/mock-api.git#cloudberry",
+        "rimraf": "^3.0.2",
+        "rollup": "^2.38.1",
+        "tslib": "^2.1.0",
+        "typescript": "^4.1.3"
+    }
+}

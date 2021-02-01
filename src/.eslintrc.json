@@ -1,0 +1,19 @@
+{
+    "extends": "standard-with-typescript",
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "rules": {
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/promise-function-async": 0,
+        "@typescript-eslint/indent": 0,
+        "@typescript-eslint/consistent-type-definitions": [1, "type"],
+        "@typescript-eslint/strict-boolean-expressions": 0,
+        "@typescript-eslint/no-misused-promises": 0,
+
+        "indent": [1, 4, { "ignoredNodes": ["TemplateLiteral > *"] }],
+        "comma-dangle": [1, "always-multiline"],
+        "curly": [1, "multi"],
+        "no-return-assign": 0
+    }
+}

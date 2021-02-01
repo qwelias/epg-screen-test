@@ -1,0 +1,199 @@
+:root {
+    font-size: 17px;
+
+    --grey0: #E7E7E7;
+    --grey1: #545454;
+    --grey2: #393939;
+    --grey3: #202020;
+    --grey4: #111111;
+
+    --base-size: 4.5rem;
+    --hour-width: calc(var(--base-size) * 4);
+    --day-width: calc(24 * var(--hour-width));
+    --days-width: calc(var(--base-size) * 9);
+    --border-color: var(--grey2);
+    --pin-mark-width: calc(var(--base-size) + 1rem);
+    --timeline-height: calc(var(--base-size) / 1.8);
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--grey1);
+    overflow: hidden;
+}
+
+header {
+    height: var(--base-size);
+    background-color: var(--grey4);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+footer {
+    height: calc(var(--base-size) - 1rem);
+    background-color: var(--grey3);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75);
+}
+
+main {
+    margin-top: var(--base-size);
+    margin-bottom: calc(var(--base-size) - 1rem);
+    background-color: var(--grey3);
+}
+
+.txt-sm {
+    font-size: 0.8rem;
+}
+
+.txt-hl {
+    color: var(--grey0)
+}
+
+.pin-mark-row-wrapper {
+    height: var(--base-size);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pin-mark {
+    width: calc(var(--pin-mark-width) + 1rem);
+    height: inherit;
+    position: sticky;
+    left: 0;
+    background-color: transparent;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 50;
+}
+.pin-mark > div {
+    width: calc(var(--pin-mark-width));
+    height: inherit;
+    background-color: var(--grey3);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    box-shadow: 3px 0px 3px 0px rgba(0,0,0,0.75);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pin-mark-row {
+    margin-top: calc(-1 * var(--base-size));
+    margin-left: calc(var(--base-size) + 1rem);
+    height: inherit;
+}
+.pin-mark-row > div {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+}
+
+#days {
+    overflow-x: scroll;
+}
+
+#days .day > div {
+    height: inherit;
+    min-width: var(--base-size);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#days .pin-mark-row-wrapper {
+    min-width: calc(var(--pin-mark-width) + var(--days-width));
+}
+
+#schedule {
+    overflow: scroll;
+    height: calc(100vh - var(--base-size) * 3 + 1rem);
+    background-color: var(--grey4);
+}
+
+#channels .pin-mark-row-wrapper {
+    min-width: calc(var(--day-width) + var(--pin-mark-width));
+}
+
+#channels .show-live {
+    background-color: var(--grey2);
+}
+
+#channels .txt-sm {
+    color: grey;
+}
+
+#channels .show {
+    border-right: 1px solid var(--border-color);
+    padding: 0.7rem;
+    font-size: 0.8rem;
+}
+
+#channels .show > *:last-child {
+    font-size: 0.7rem;
+}
+
+#timeline {
+    position: relative;
+    z-index: 100;
+    padding-left: calc(var(--pin-mark-width));
+    height: var(--timeline-height);
+    display: flex;
+    min-width: calc(var(--day-width) + var(--pin-mark-width));
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    background-color: var(--grey3);
+}
+
+#timeline .hour {
+    min-width: var(--hour-width);
+    border-left: 1px solid var(--border-color);
+}
+
+#timeline .hour > div {
+    padding-top: 0.8rem;
+    position: relative;
+    margin-left: -1.49rem;
+    background-color: var(--grey3);
+}
+
+#now-pointer {
+    height: calc(var(--timeline-height));
+    width: 0.3rem;
+    position: absolute;
+    border: 1px solid orange;
+    z-index: 5;
+    border-radius: 10px;
+    background-color: orange;
+}
+#now-line {
+    width: 1px;
+    position: relative;
+    background-color: orange;
+}
+
+#goto-now {
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    background-color: orange;
+    color: var(--grey0);
+    border-radius: 0.2rem;
+    position: absolute;
+    border: none;
+    bottom: calc(var(--base-size));
+    right: 1rem;
+    outline: none;
+}
