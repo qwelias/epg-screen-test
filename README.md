@@ -1,6 +1,7 @@
 # EPG test
 
 ## Notes
+- works as intended on Chrome only :^)
 - main EPG screen implemented
 - header and footer are left empty sine they're non interactible and I have no assets
 - mock api provides broken logo links, placeholder is in use [here](src/EPG/Schedule.ts)
