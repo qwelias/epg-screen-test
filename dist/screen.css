@@ -139,9 +139,15 @@ main {
 }
 
 #channels .show {
+    cursor: pointer;
     border-right: 1px solid var(--border-color);
     padding: 0.7rem;
     font-size: 0.8rem;
+}
+
+#channels .show:hover {
+    box-shadow: 0px 0px 5px 0px orange;
+    position: relative;
 }
 
 #channels .show > *:last-child {
@@ -186,9 +192,11 @@ main {
     width: 1px;
     position: relative;
     background-color: orange;
+    z-index: 5;
 }
 
 #goto-now {
+    cursor: pointer;
     padding: 0.5rem 1rem;
     font-weight: bold;
     background-color: orange;
